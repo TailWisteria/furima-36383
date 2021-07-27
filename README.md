@@ -19,18 +19,17 @@
 - has_many :orders
 
 ## items テーブル
-| Column          | Type       | Option                         |
-| --------------- | ---------- | ------------------------------ |
-| user            | references | null: false, foreign_key: true |
-| image           |            |                                |
-| name            | string     | null: false                    |
-| detail          | text       | null: false                    |
-| category        | string     | null: false                    |
-| condition       | string     | null: false                    |
-| shipping_charge | string     | null: false                    |
-| required_days   | string     | null: false                    |
-| region          | string     | null: false                    |
-| price           | integer    | null: false                    |
+| Column             | Type       | Option                         |
+| ------------------ | ---------- | ------------------------------ |
+| user               | references | null: false, foreign_key: true |
+| name               | string     | null: false                    |
+| detail             | text       | null: false                    |
+| category_id        | integer    | null: false                    |
+| condition_id       | integer    | null: false                    |
+| shipping_charge_id | integer    | null: false                    |
+| required_day_id    | integer    | null: false                    |
+| region_id          | integer    | null: false                    |
+| price              | integer    | null: false                    |
 
 ### Association
 
@@ -40,7 +39,7 @@
 ## orders テーブル
 | Column    | Type       | Option                         | 
 | --------- | ---------- | ------------------------------ |
-| buyer     | references | null: false, foreign_key: true |
+| user      | references | null: false, foreign_key: true |
 | seller    | references | null: false, foreign_key: true |
 | item      | references | null: false, foreign_key: true |
 
@@ -50,15 +49,15 @@
 - belongs_to :item
 - has_one :shipping
 
-## shipping テーブル
+## shippings テーブル
 | Column           | Type       | Option                         |
 | ---------------- | ---------- | ------------------------------ |
 | order            | references | null: false, foreign_key: true |
 | postal_code      | string     | null: false, foreign_key: true |
-| prefecture       | string     | null: false                    |
+| region_id        | string     | null: false                    |
 | municipalities   | string     | null: false                    |
 | address          | string     | null: false                    |
-| building         | string     | null: false                    |
+| building         | string     |                                |
 | telephone_number | string     | null: false                    |
 
 ### Association
