@@ -40,7 +40,6 @@
 | Column    | Type       | Option                         | 
 | --------- | ---------- | ------------------------------ |
 | user      | references | null: false, foreign_key: true |
-| seller    | references | null: false, foreign_key: true |
 | item      | references | null: false, foreign_key: true |
 
 ### Association
@@ -54,7 +53,7 @@
 | ---------------- | ---------- | ------------------------------ |
 | order            | references | null: false, foreign_key: true |
 | postal_code      | string     | null: false, foreign_key: true |
-| region_id        | string     | null: false                    |
+| region_id        | integer    | null: false                    |
 | municipalities   | string     | null: false                    |
 | address          | string     | null: false                    |
 | building         | string     |                                |
