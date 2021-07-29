@@ -10,8 +10,8 @@ RSpec.describe User, type: :model do
         expect(@user).to be_valid
       end
       it 'passwordとpassword_confirmationが6文字以上であれば登録できる' do
-        @user.password = '000000'
-        @user.password_confirmation = '000000'
+        @user.password = '0000aa'
+        @user.password_confirmation = '0000aa'
         expect(@user). to be_valid
       end
       it 'お名前（全角）が全角（漢字、ひらがな、カタカナ）であれば登録できる' do
