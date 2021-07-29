@@ -11,7 +11,7 @@
 | cc_first_name      | string | null: false |
 | kk_last_name       | string | null: false |
 | kk_first_name      | string | null: false |
-| birth_day          | date   | null: false |
+| birthday           | date   | null: false |
 
 ### Association
 
