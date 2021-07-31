@@ -12,7 +12,7 @@ class Item < ApplicationRecord
 
   validates :category_id, :condition_id, :shipping_charge_id, :region_id, :required_day_id, numericality: { other_than: 1 ,message: "can't be blank"}
   validates :image, :user, :name, :detail, :category_id, :condition_id, :shipping_charge_id, :required_day_id, :region_id, :price, presence: true
-  validates :price, format: { with: /\A[0-9]+\z/ }, numericality: {in: 300..9999999}
+  validates :price, format: { with: /\A[0-9]+\z/ }, numericality: {greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
   validates :name, length: {maximum: 40}
   validates :detail, length: {maximum: 100}
 end
