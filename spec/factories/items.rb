@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :item do
+    id                 {1}
     name               {'text'}
     detail             {'text'}
     category_id        {2}

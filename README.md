@@ -52,7 +52,7 @@
 | Column           | Type       | Option                         |
 | ---------------- | ---------- | ------------------------------ |
 | order            | references | null: false, foreign_key: true |
-| postal_code      | string     | null: false, foreign_key: true |
+| postal_code      | string     | null: false                    |
 | region_id        | integer    | null: false                    |
 | municipalities   | string     | null: false                    |
 | address          | string     | null: false                    |
