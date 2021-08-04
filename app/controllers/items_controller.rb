@@ -46,6 +46,9 @@ class ItemsController < ApplicationController
     unless current_user.id == Item.find(params[:id]).user_id
       redirect_to root_path
     end
+    if Item.find(params[:id]).order.present?
+      redirect_to root_path
+    end
   end
 
   private

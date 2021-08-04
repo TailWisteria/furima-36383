@@ -9,6 +9,7 @@ class Item < ApplicationRecord
   belongs_to :required_day
   belongs_to :user
   has_one_attached :image
+  has_one :order, dependent: :destroy
 
   validates :category_id, :condition_id, :shipping_charge_id, :region_id, :required_day_id, numericality: { other_than: 1 ,message: "can't be blank"}
   validates :image, :user, :name, :detail, :category_id, :condition_id, :shipping_charge_id, :required_day_id, :region_id, :price, presence: true
