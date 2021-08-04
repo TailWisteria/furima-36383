@@ -1,8 +1,10 @@
 class OrdersController < ApplicationController
+
   before_action :authenticate_user!, only: [:index, :create]
   before_action :move_to_index, :index
+  before_action :find_item, only: [:index, :create]
+
   def index
-    @item = Item.find(params[:item_id])
     @order_shipping = OrderShipping.new
   end
 
@@ -13,21 +15,18 @@ class OrdersController < ApplicationController
       @order_shipping.save
       redirect_to root_path
     else
-      @item = Item.find(params[:item_id])
       render :index
     end
   end
 
   def move_to_index
-
-    if current_user.id == Item.find(params[:item_id]).user_id
+    if current_user.id == Item.find(params[:item_id]).user_id || Item.find(params[:item_id]).order.present?
       redirect_to root_path
     end
+  end
 
-    if Item.find(params[:item_id]).order.present?
-       redirect_to root_path
-    end
-
+  def find_item
+    @item = Item.find(params[:item_id])
   end
 
   private

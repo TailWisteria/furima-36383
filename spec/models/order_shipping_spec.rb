@@ -27,6 +27,16 @@ RSpec.describe OrderShipping, type: :model do
       end
     end
     context '商品が購入できない時' do
+      it 'user_idが空では登録できない' do
+        @order_shipping.user_id = nil
+        @order_shipping.valid?
+        expect(@order_shipping.errors.full_messages).to include("User can't be blank")
+      end
+      it 'item_idが空では登録できない' do
+        @order_shipping.item_id = nil
+        @order_shipping.valid?
+        expect(@order_shipping.errors.full_messages).to include("Item can't be blank")
+      end
       it '郵便番号がなければ購入できない' do
         @order_shipping.postal_code = ''
         @order_shipping.valid?
@@ -57,8 +67,13 @@ RSpec.describe OrderShipping, type: :model do
         @order_shipping.valid?
         expect(@order_shipping.errors.full_messages).to include("Telephone number can't be blank")
       end
-      it '電話番号が、10桁以上11桁以内の半角数値のみでなければ購入できない' do
-        @order_shipping.telephone_number = '1111111111111'
+      it '電話番号が、12桁以上では登録できない' do
+        @order_shipping.telephone_number = '111111111111'
+        @order_shipping.valid?
+        expect(@order_shipping.errors.full_messages).to include("Telephone number is invalid")
+      end
+      it '電話番号が英数混合では登録できない' do
+        @order_shipping.telephone_number = '123abcd1234'
         @order_shipping.valid?
         expect(@order_shipping.errors.full_messages).to include("Telephone number is invalid")
       end
