@@ -5,5 +5,6 @@ class Order < ApplicationRecord
   belongs_to :user
   belongs_to :item
   belongs_to :region
-  has_one :shipping
+  belongs_to :item
+  has_one :shipping, dependent: :destroy
 end
