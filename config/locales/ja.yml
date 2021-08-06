@@ -1,0 +1,40 @@
+ja:
+  activerecord:
+  
+    errors:
+      format: "%{attribute}%{message}"
+      messages:
+        other_than: を入力してください
+    attributes:
+      user:
+        nickname: ニックネーム
+        birthday: 誕生日
+        cc_last_name: 姓(全角)
+        cc_first_name: 名(全角)
+        kk_last_name: 姓(カナ)
+        kk_first_name: 名(カナ)
+      item:
+        name: 商品名
+        price: 価格
+        category_id: カテゴリー
+        condition_id: 商品の状態
+        shipping_charge_id: 発送料の負担
+        required_day_id: 発送までの日数
+        region_id: 発送元の地域
+        detail: 商品の説明
+        image: 画像
+
+  
+  activemodel:
+    errors:
+      format: "%{attribute}%{message}"
+      messages:
+        other_than: を入力してください
+    attributes:
+      order_shipping:
+        postal_code: 郵便番号
+        region_id: 都道府県
+        municipalities: 市区町村
+        address: 番地
+        telephone_number: 電話番号
+        token: クレジットカード情報
